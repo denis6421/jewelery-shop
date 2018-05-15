@@ -118,10 +118,10 @@ padding-top: 0px;
     font-size: 17px;
   }
   #social_links{
-    width: 100px;
+    width: 110px;
   }
   #social_links a img{
-    width: 30px;
+    width: 40px;
   }
 }
 @media screen and (min-width: 500px){
