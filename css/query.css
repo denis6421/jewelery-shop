@@ -152,6 +152,10 @@ main h2{
 .main_wrapper{
   padding-top: 40px;
 }
+.hidden_img button{
+  font-size: 25px;
+
+}
 }
 @media screen and (max-width: 400px){
   .project_images{
