@@ -1,27 +1,34 @@
-$(document).ready(function(){
-$('.nav_btns').click(function(){
-  $('html, body').animate({
-  scrollTop: $("main").offset().top
-}, 600);
+var container = document.querySelector(".main_wrapper");
+$(document).ready(function() {
+  $('.nav_btns').click(function() {
+    $('html, body').animate({
+      scrollTop: $("main").offset().top
+    }, 600);
+  })
+
+  $('.go_up').on('click', function(event) {
+    $('html, body').animate({
+      scrollTop: $("main").offset().top
+    }, 600);
+  })
+  $('.hamburger_mobile').click(function() {
+    $('.hidden_box').slideToggle();
+  })
+
 })
 
-$('.go_up').on('click', function(event) {
-  $('html, body').animate({
-    scrollTop: $("main").offset().top
-  }, 600);
-})
-$('.hamburger_mobile').click(function(){
-  $('.hidden_box').slideToggle();
-})
+$('.nav_btns button').click(function(event) {
+  $(this).siblings().removeClass('selected_nav_btn')
+  $(this).addClass('selected_nav_btn')
 })
 
-$('.nav_btns button').click(function(event){
-    $(this).siblings().removeClass('selected_nav_btn')
-    $(this).addClass('selected_nav_btn')
+$('.hidden_box .nav_btns button').click(function(){
+  $(".main_wrapper").css('display', 'flex')
+  $('.hidden_menu_mobile').hide();
+  $(".hidden_box").slideToggle();
+      $(".hidden_box").toggleClass('active_burger')
 })
 
-
-  var container = document.querySelector(".main_wrapper");
 $(document).ready(function() {
   $.getJSON("js/items.json", function(result) {
     var items = result;
@@ -30,11 +37,11 @@ $(document).ready(function() {
 
       var results_output =
 
-        '<div class="project_container" >' +
+        '<div class="project_container " >' +
         '<div  class="project_images" data-aos="zoom-in"  data-aos-duration="500">' +
         '<img src  = ' + items[i].image + '>' + '</div>' +
-         '</div>'
-    container.innerHTML += results_output;
+        '</div>'
+      container.innerHTML += results_output;
     };
 
   });
@@ -47,17 +54,21 @@ $(document).ready(function() {
       var items = result;
 
       for (var i = 0; i < items.length; i++) {
-  var results_output =
+        var results_output =
 
           '<div class="project_container" >' +
           '<div  class="project_images" data-aos="zoom-in"  data-aos-duration="500">' +
           '<img src  = ' + items[i].image + '>' + '</div>' +
-           '</div>'
-           container.innerHTML += results_output;
-           $('main h1').html('ALL JEWELERY')
-    };
+          '</div>'
+        container.innerHTML += results_output;
+        $('main h1').html('ALL JEWELERY')
+      };
 
     });
+    if($(document).width() < 600){
+      $('.main_wrapper').hide()
+      $('.hidden_menu_mobile').show();
+    }
   })
 
   $(' #rings').on('click', function(event) {
@@ -66,21 +77,21 @@ $(document).ready(function() {
       var items = result;
 
       for (var i = 0; i < items.length; i++) {
-  var results_output =
+        var results_output =
 
           '<div class="project_container" >' +
           '<div  class="project_images" data-aos="zoom-in"  data-aos-duration="500">' +
           '<img src  = ' + items[i].image + '>' + '</div>' +
-           '</div>'
-           container.innerHTML += results_output;
-           $('main h1').html('Rings collection')
-    };
+          '</div>'
+        container.innerHTML += results_output;
+        $('main h1').html('Rings collection')
+      };
 
     });
-  if($(document).width() < 730){
-      $(".hidden_box").slideToggle();
-      $(".hidden_box").toggleClass('active_burger')
-  }
+if($(document).width() < 600){
+  $(".main_wrapper").css('display', 'flex')
+  $('.hidden_menu_mobile').hide();
+}
   });
 
 
@@ -89,21 +100,21 @@ $(document).ready(function() {
     $.getJSON("js/necklass.json", function(result) {
       var items = result;
       for (var i = 0; i < items.length; i++) {
-  var results_output =
+        var results_output =
 
           '<div class="project_container" >' +
           '<div  class="project_images" data-aos="zoom-in"  data-aos-duration="500">' +
           '<img src  = ' + items[i].image + '>' + '</div>' +
           '</div>';
-           container.innerHTML += results_output;
-            $('main h1').html('Necklace collection')
-    };
-  });
-    if($(document).width() < 730){
-        $(".hidden_box").slideToggle();
-        $(".hidden_box").toggleClass('active_burger')
-    }
+        container.innerHTML += results_output;
+        $('main h1').html('Necklace collection')
+      };
+    });
 
+    if($(document).width() < 600){
+      $(".main_wrapper").css('display', 'flex')
+      $('.hidden_menu_mobile').hide();
+    }
   });
 
   $(' #bracelet').on('click', function(event) {
@@ -111,21 +122,21 @@ $(document).ready(function() {
     $.getJSON("js/bracelet.json", function(result) {
       var items = result;
       for (var i = 0; i < items.length; i++) {
-  var results_output =
+        var results_output =
 
           '<div class="project_container" >' +
           '<div  class="project_images" data-aos="zoom-in"  data-aos-duration="500">' +
-          '<img src  = ' + items[i].image + '>' + '</div>'
-           +'</div>'
+          '<img src  = ' + items[i].image + '>' + '</div>' +
+          '</div>'
 
-           container.innerHTML += results_output;
-             $('main h1').html('Bracelet collection')
-    };
-  });
-  if($(document).width() < 730){
-      $(".hidden_box").slideToggle();
-      $(".hidden_box").toggleClass('active_burger')
-  }
+        container.innerHTML += results_output;
+        $('main h1').html('Bracelet collection')
+      };
+    });
+    if($(document).width() < 600){
+      $(".main_wrapper").css('display', 'flex')
+      $('.hidden_menu_mobile').hide();
+    }
   });
 
 
@@ -134,42 +145,43 @@ $(document).ready(function() {
     $.getJSON("js/earings.json", function(result) {
       var items = result;
       for (var i = 0; i < items.length; i++) {
-  var results_output =
+        var results_output =
 
           '<div class="project_container" >' +
           '<div  class="project_images" data-aos="zoom-in"  data-aos-duration="500">' +
           '<img src  = ' + items[i].image + '>' + '</div>' + '</div>'
 
-           container.innerHTML += results_output;
-            $('main h1').html('Earings collection')
+        container.innerHTML += results_output;
+        $('main h1').html('Earings collection')
 
-    };
+      };
 
-  });
-    if($(document).width() < 730){
-        $(".hidden_box").slideToggle();
-        $(".hidden_box").toggleClass('active_burger')
+    });
+    if($(document).width() < 600){
+      $(".main_wrapper").css('display', 'flex')
+      $('.hidden_menu_mobile').hide();
     }
   });
 
-$(".main_wrapper").on('click','.project_images ' ,function(e){
-      $('.hidden_img').html('<img src = ' + e.target.src + '>');
-      $('<button />', {
-          "class": 'close_button',
-          text: "X"}).appendTo($('.hidden_img'))
+  $(".main_wrapper").on('click', '.project_images ', function(e) {
+    $('.hidden_img').html('<img src = ' + e.target.src + '>');
+    $('<button />', {
+      "class": 'close_button',
+      text: "X"
+    }).appendTo($('.hidden_img'))
 
-      $('.hidden_img').show();
-     e.stopPropagation();
-});
-
-$(".main_wrapper").on('click','.project_images ' , function(e){
+    $('.hidden_img').show();
     e.stopPropagation();
-});
+  });
 
-$(document).click(function(){
+  $(".main_wrapper").on('click', '.project_images ', function(e) {
+    e.stopPropagation();
+  });
+
+  $(document).click(function() {
     $('.hidden_img').hide();
-});
-/////////////making sticky nav///////////////
+  });
+  /////////////making sticky nav///////////////
   var yourNavigation = $("nav");
   var yourNavigation2 = $(".hidden_box");
   stickyDiv = "sticky";
