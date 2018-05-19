@@ -168,24 +168,32 @@ padding-top: 0px;
 }
 @media screen and (max-width: 500px){
 
-
+main h1{
+  margin-bottom: 10px;
+}
+main h2{
+  margin-bottom: 10px;
+}
 .main_wrapper{
   justify-content: space-around;
   width: 90%;
   margin: auto;
+  padding-top: 10px;
 }
 .hidden_img{
   width:300px;
   height: 250px;
 }
 .project_container{
-  height: 200px;
+  height: 180px;
   width: 165px;
   margin-bottom: 20px;
+
 }
 .project_images{
   width:165px;
 	height: 130px;
+
 }
 
 .hidden_img button{
@@ -196,40 +204,50 @@ height: 30px;
 .hidden_menu_mobile{
   width: 380px;
 }
-
+.mobile_images_menu{
+	width:170px;
+	height: 130px;
+}
 }
 @media screen and (max-width: 400px){
   .hidden_menu_mobile{
     width: 100%;
   }
-
+.main_wrapper{
+  justify-content: space-between;
+  width: 92%;
+}
   .mobile_images_menu{
-    width: 140px;
-    height: 125px;
+    width: 160px;
+    height: 130px;
   }
   .project_container{
     height: 160px;
-    width: 135px;
+    width: 158px;
     margin-bottom: 0px;
   }
   .project_images{
-    width:135px;
-  	height: 100px;
+    width:158px;
+  	height: 110px;
+  }
+  .mobile_menu_btn{
+    width: 95%;
   }
 }
-@media screen and (max-width: 340px){
+@media screen and (max-width: 360px){
 
   .mobile_images_menu{
-    width: 115px;
+    width: 130px;
     height: 100px;
+    font-size: 12px;
   }
   .project_container{
-    height: 200px;
-    width: 115px;
+    height: 140px;
+    width: 130px;
 
   }
   .project_images{
-    width:115px;
+    width:130px;
   	height: 90px;
   }
 }
